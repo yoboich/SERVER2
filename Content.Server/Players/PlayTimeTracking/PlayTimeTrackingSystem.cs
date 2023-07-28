@@ -3,6 +3,7 @@ using Content.Server.Afk;
 using Content.Server.Afk.Events;
 using Content.Server.GameTicking;
 using Content.Server.Roles;
+using Content.Server.Corvax.Sponsors;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs;
@@ -28,6 +29,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!;
 
     public override void Initialize()
     {
@@ -157,6 +159,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public bool IsAllowed(IPlayerSession player, string role)
     {
+        // DeadSpace-Sponsors-Start
+        if (_sponsors.TryGetInfo(player.UserId, out var sponsor) && (sponsor.AllowedMarkings.Contains(role) || sponsor.AllowedMarkings.Contains("AllRoles")))
+            return true;
+        // DeadSpace-Sponsors-End
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
             job.Requirements == null ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
@@ -177,19 +183,23 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (job.Requirements != null)
+            // DeadSpace-Sponsors-Start
+            if (!(_sponsors.TryGetInfo(player.UserId, out var sponsor) && (sponsor.AllowedMarkings.Contains(job.ID) || sponsor.AllowedMarkings.Contains("AllRoles"))))
             {
-                foreach (var requirement in job.Requirements)
+                // DeadSpace-Sponsors-End
+                if (job.Requirements != null)
                 {
-                    if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, _prototypes))
-                        continue;
+                    foreach (var requirement in job.Requirements)
+                    {
+                        if (JobRequirements.TryRequirementMet(requirement, playTimes, out _, _prototypes))
+                            continue;
 
-                    goto NoRole;
+                        goto NoRole;
+                    }
                 }
             }
-
             roles.Add(job.ID);
-            NoRole:;
+        NoRole:;
         }
 
         return roles;
@@ -201,16 +211,20 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             return;
 
         var player = _playerManager.GetSessionByUserId(userId);
-        if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
-        {
-            // Sorry mate but your playtimes haven't loaded.
-            Logger.ErrorS("playtime", $"Playtimes weren't ready yet for {player} on roundstart!");
-            playTimes ??= new Dictionary<string, TimeSpan>();
-        }
+        var playTimes = _tracking.GetTrackerTimes(player);
 
+        // DeadSpace-Sponsors-Start
+        if (_sponsors.TryGetInfo(player.UserId, out var sponsor) && sponsor.AllowedMarkings.Contains("AllRoles"))
+            return;
+        // DeadSpace-Sponsors-End
         for (var i = 0; i < jobs.Count; i++)
         {
             var job = jobs[i];
+
+            // DeadSpace-Sponsors-Start
+            if (sponsor != null && sponsor.AllowedMarkings.Contains(job))
+                continue;
+            // DeadSpace-Sponsors-End
 
             if (!_prototypes.TryIndex<JobPrototype>(job, out var jobber) ||
                 jobber.Requirements == null ||

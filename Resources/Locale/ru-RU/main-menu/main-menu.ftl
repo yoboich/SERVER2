@@ -10,5 +10,5 @@ main-menu-username-text = Имя пользователя
 main-menu-join-public-server-button = Публичный сервер
 main-menu-join-public-server-button-tooltip = Нельзя подключаться к публичным серверам с отладочной сборкой.
 main-menu-direct-connect-button = Прямое подключение
-main-menu-options-button = Настройки
-main-menu-quit-button = Выйти
+main-menu-options-button = Ковырялки
+main-menu-quit-button = Сбежать

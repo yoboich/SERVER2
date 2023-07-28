@@ -1,20 +1,20 @@
 ### Connecting dialog when you start up the game
 
-connecting-title = Space Station 14
-connecting-exit = Выйти
-connecting-retry = Повторить
+connecting-title = Dead Space 14
+connecting-exit = Сбежать
+connecting-retry = Поновой
 connecting-reconnect = Переподключиться
 connecting-redial = Перезапустить
 connecting-redial-wait = Пожалуйста подождите: { TOSTRING($time, "G3") }
-connecting-in-progress = Подключение к серверу...
-connecting-disconnected = Отключен от сервера:
-connecting-tip = Не умирай!
-connecting-version = версия 0.1
+connecting-in-progress = Подключение к Космосу...
+connecting-disconnected = Отключен от Космоса:
+connecting-tip = Живи!
+connecting-version = версия 9.9
 connecting-fail-reason =
-    Не удалось подключиться к серверу:
+    Не удалось подключиться к Космосу:
     { $reason }
-connecting-state-NotConnecting = Не подключен
-connecting-state-ResolvingHost = Определение хоста
-connecting-state-EstablishingConnection = Установка соединения
+connecting-state-NotConnecting = Какая-то лажа..
+connecting-state-ResolvingHost = Определение Космоса
+connecting-state-EstablishingConnection = Соединяем с Космосом
 connecting-state-Handshake = Handshake
-connecting-state-Connected = Подключен
+connecting-state-Connected = Всё топ!

@@ -1,3 +1,5 @@
+ent-ClothingEyesGlassesBeer = beer goggles
+    .desc = A pair of sunglasses outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion.
 ent-ClothingEyesGlassesGar = gar glasses
     .desc = Go beyond impossible and kick reason to the curb!
 ent-ClothingEyesGlassesGarOrange = orange gar glasses
