@@ -170,8 +170,6 @@ namespace Content.Server.GameTicking
 
             _startingRound = true;
 
-            ReplayStartRound();
-
             DebugTools.Assert(RunLevel == GameRunLevel.PreRoundLobby);
             _sawmill.Info("Starting round!");
 
@@ -368,8 +366,6 @@ namespace Content.Server.GameTicking
             // If this game ticker is a dummy, do nothing!
             if (DummyTicker)
                 return;
-
-            ReplayEndRound();
 
             // Handle restart for server update
             if (_serverUpdates.RoundEnded())
