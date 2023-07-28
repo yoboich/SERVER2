@@ -12,6 +12,7 @@
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name = "Background" Stretch="KeepAspectCovered"/>
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal" Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" HorizontalExpand="True">
+            
             <!-- LHS Controls -->
             <BoxContainer Name="LeftSide" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True">
                 <Control Name="DefaultState" VerticalExpand="True">
@@ -48,6 +49,10 @@
                 <!-- This is injected on startup. Funky! -->
                 <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" />
             </BoxContainer>
+
+
+
+
             <!-- Right Panel -->
             <PanelContainer Name="RightSide" StyleClasses="AngleRect" HorizontalAlignment= "Right" VerticalExpand="True" VerticalAlignment="Stretch">
                 <BoxContainer Orientation="Vertical"  HorizontalExpand="True">
