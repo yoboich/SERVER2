@@ -20,6 +20,7 @@ public sealed class JobRequirementsManager
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -98,6 +99,9 @@ public sealed class JobRequirementsManager
 
         if (player == null)
             return true;
+
+        if (_sponsors.TryGetInfo(out var sponsor) && (sponsor.AllowedMarkings.Contains(job.ID) || sponsor.AllowedMarkings.Contains("AllRoles")))
+			return true;
 
         var reasonBuilder = new StringBuilder();
 
