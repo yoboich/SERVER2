@@ -382,6 +382,8 @@ namespace Content.Server.GameTicking
             if (DummyTicker)
                 return;
 
+            ReplayEndRound();
+
             // Handle restart for server update
             if (_serverUpdates.RoundEnded())
                 return;
