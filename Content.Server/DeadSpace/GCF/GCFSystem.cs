@@ -6,7 +6,6 @@ using Content.Shared.Chat;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using SpaceWizards.Sodium.Interop;
 
 namespace Content.Server.AutoGCF;
 
