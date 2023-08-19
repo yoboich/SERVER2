@@ -4,3 +4,20 @@
     path: /Audio/Voice/Moth/squeak_moth.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: FemaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+      
+- type: emoteSounds
+  id: MaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+      
