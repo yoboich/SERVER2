@@ -149,6 +149,12 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
+  - type: Vocal
+    wilhelm: "/Audio/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
   - type: Sprite
     netsync: false
     noRot: true

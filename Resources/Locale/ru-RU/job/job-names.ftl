@@ -4,7 +4,7 @@ job-name-cadet = милиционер
 job-name-hos = директор милиции
 job-name-detective = следователь
 job-name-brigmedic = милицейский медик
-job-name-borg = Cyborg
+job-name-borg = киборг
 job-name-scientist = учёный
 job-name-research-assistant = научный ассистент
 job-name-rd = научный руководитель
@@ -51,7 +51,7 @@ job-name-senior-officer = инструктур милиции
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = атмосферный техник
 JobBartender = бармен
-JobBorg = Borg
+JobBorg = киборг
 JobBotanist = ботаник
 JobCaptain = главно-упровляющий
 JobCargoTechnician = грузчик
