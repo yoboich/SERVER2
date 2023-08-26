@@ -190,6 +190,6 @@ namespace Content.Server.Abilities.Felinid
         }
     }
 
-    public sealed class HairballActionEvent : InstantActionEvent {}
-    public sealed class EatMouseActionEvent : InstantActionEvent {}
+    public sealed partial class HairballActionEvent : InstantActionEvent {}
+    public sealed partial class EatMouseActionEvent : InstantActionEvent {}
 }
