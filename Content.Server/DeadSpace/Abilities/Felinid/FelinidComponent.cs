@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Abilities.Felinid
 {
     [RegisterComponent]
-    public sealed class FelinidComponent : Component
+    public sealed partial class FelinidComponent : Component
     {
         /// <summary>
         /// The hairball prototype to use.
