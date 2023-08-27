@@ -1,3 +1,6 @@
 ﻿- type: lobbyBackground
-  id: Deadspace
-  background: /Textures/DeadSpace/LobbyScreens/deadspace.png
+  id: Anime1
+  background: /Textures/DeadSpace/LobbyScreens/Souz/1.png
+- type: lobbyBackground
+  id: Anime2
+  background: /Textures/DeadSpace/LobbyScreens/Souz/2.png
