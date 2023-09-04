@@ -248,6 +248,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         CheckRoundShouldEnd();
     }
+	
+    private void OnOperativeZombified(EntityUid uid, NukeOperativeComponent component, ref EntityZombifiedEvent args)
+    {
+        RemCompDeferred(uid, component);
+    }
 
     private void OnNukeExploded(NukeExplodedEvent ev)
     {
