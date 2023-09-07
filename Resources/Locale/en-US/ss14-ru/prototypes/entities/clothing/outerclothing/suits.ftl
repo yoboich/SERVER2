@@ -14,3 +14,7 @@ ent-ClothingOuterSuitMonkey = monkey suit
     .desc = A suit that looks like a primate.
 ent-ClothingOuterSuitAtmosFire = atmos fire suit
     .desc = An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
+ent-ClothingOuterSuitIan = ian suit
+    .desc = Who's a good boy?
+ent-ClothingOuterSuitCarp = carp suit
+    .desc = A special suit that makes you look just like a space carp, if your eyesight is bad.
